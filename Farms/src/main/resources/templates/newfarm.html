@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Farm Management System</title>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Farm Management System</h1>
+            <hr>
+            <h2>Save Farm</h2>
+
+            <form action="#" th:action="@{/save}" th:object="${farm}"
+                  method="POST">
+                <input type="text" th:field="*{id}" placeholder="Farm id" class="form-control mb-4 col-4"> 
+                <input type="text" th:field="*{address}" placeholder="Farm address" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{exension}" placeholder="Farm exension" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{categoryId}" placeholder="Farm categoryId" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{name}" placeholder="Farm name" class="form-control mb-4 col-4">
+                <button type="submit" class="btn btn-info col-2">Save Farm</button>
+            </form>
+
+            <hr>
+
+            <a th:href="@{/}"> Back to Farm List</a>
+        </div>
+    </body>
+</html>

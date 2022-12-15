@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">  
+    <head>
+        <title>Farm Management System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container my-2" align="center">
+            <h1>Farm List</h1>
+            <a th:href="@{/addFarm}" class="btn btn-primary btn-sm mb-3" >Add Farm</a>
+            <br>
+            <table style="width:80%" border="1" class = "table table-striped table-responsive-md">
+                <thead>
+                <th>Id</th>
+                <th>Address</th>
+                <th>Exenxion</th>
+                <th>Category_id</th>
+                <th>Name</th>
+                <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr th:each="farm : ${listFarm}">
+                        <td th:text="${farm.id}"></td>
+                        <td th:text="${farm.address}"></td>
+                        <td th:text="${farm.exension}"></td>
+                        <td th:text="${farm.categoryId}"></td>
+                        <td th:text="${farm.name}"></td>
+                        <td> <a th:href="@{/showFormForUpdate/{id}(id=${farm.id})}"
+                                class="btn btn-primary">Update</a>
+                            <a th:href="@{/deleteFarm/{id}(id=${farm.id})}"
+                               class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
